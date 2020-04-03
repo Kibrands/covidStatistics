@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+        "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:f="http://java.sun.com/jsf/core"
+      xmlns:p="http://primefaces.org/ui"
+      xmlns:composite="http://java.sun.com/jsf/composite">
+
+<composite:interface>
+
+</composite:interface>
+
+<composite:implementation>
+    <h:form>
+        <p:panel header="Contenidos" style="margin-top: 10px">
+            <p:panelGrid columns="2" styleClass="ui-panelgrid-blank ui-fluid myPanel"
+                         columnClasses="ui-g-12 ui-md-4, ui-g-12 ui-md-8">
+                <h:outputText style="font-weight: bold" value="Buscar"/>
+                <h:outputText value="Búsqueda de todos los registros o registros únicos por fecha y código de país"/>
+
+                <h:outputText style="font-weight: bold" value="Insertar"/>
+                <h:outputText value="Insertar un nuevo registro"/>
+
+                <h:outputText style="font-weight: bold" value="Modificar"/>
+                <h:outputText value="Modificar un registro ya existente"/>
+
+                <h:outputText style="font-weight: bold" value="Eliminar"/>
+                <h:outputText value="Eliminar registros"/>
+            </p:panelGrid>
+        </p:panel>
+    </h:form>
+</composite:implementation>
+</html>

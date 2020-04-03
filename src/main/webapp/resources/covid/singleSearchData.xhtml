@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+        "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:f="http://java.sun.com/jsf/core"
+      xmlns:p="http://primefaces.org/ui"
+      xmlns:composite="http://java.sun.com/jsf/composite">
+
+<composite:interface>
+
+</composite:interface>
+
+<composite:implementation>
+    <h:form>
+        <h3>Registro</h3>
+        <p:panelGrid style="width: 100%" columns="3">
+            <h:outputText style="font-weight: bold" value="Fecha:"/>
+            <h:outputText style="font-weight: bold" value="Código de país:"/>
+            <h:outputText style="font-weight: bold" value="Nombre del país:"/>
+
+            <h:outputText value="#{webAppBean.foundRegistry.date}"/>
+            <h:outputText value="#{webAppBean.foundRegistry.countryCode}"/>
+            <h:outputText value="#{webAppBean.foundRegistry.countryName}"/>
+
+            <h:outputText style="font-weight: bold" value="Nuevos casos:"/>
+            <h:outputText style="font-weight: bold" value="Nuevas muertes:"/>
+            <h:outputText style="font-weight: bold" value="Nuevos recuperados:"/>
+
+            <h:outputText value="#{webAppBean.foundRegistry.newCases}"/>
+            <h:outputText value="#{webAppBean.foundRegistry.newDeaths}"/>
+            <h:outputText value="#{webAppBean.foundRegistry.newRecovered}"/>
+        </p:panelGrid>
+    </h:form>
+</composite:implementation>
+</html>

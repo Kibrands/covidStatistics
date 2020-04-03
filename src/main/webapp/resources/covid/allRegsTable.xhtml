@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+        "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:f="http://java.sun.com/jsf/core"
+      xmlns:p="http://primefaces.org/ui"
+      xmlns:composite="http://java.sun.com/jsf/composite">
+
+<composite:interface>
+
+</composite:interface>
+
+<composite:implementation>
+    <h:form>
+        <p:dataTable var="reg" value="#{webAppBean.registryList}" paginator="true"
+                     style="margin-top:20px" rows="10">
+            <f:facet name="header">
+                Registros
+            </f:facet>
+            <p:column sortBy="#{reg.date}" headerText="Fecha">
+                <h:outputText value="#{reg.date}" />
+            </p:column>
+
+            <p:column sortBy="#{reg.countryCode}" headerText="Código de país">
+                <h:outputText value="#{reg.countryCode}" />
+            </p:column>
+
+            <p:column headerText="Nombre del país">
+                <h:outputText value="#{reg.countryName}" />
+            </p:column>
+
+            <p:column headerText="Nuevos casos">
+                <h:outputText value="#{reg.newCases}" />
+            </p:column>
+
+            <p:column headerText="Nuevas muertes">
+                <h:outputText value="#{reg.newDeaths}" />
+            </p:column>
+
+            <p:column headerText="Nuevos curados">
+                <h:outputText value="#{reg.newRecovered}" />
+            </p:column>
+        </p:dataTable>
+    </h:form>
+</composite:implementation>
+</html>

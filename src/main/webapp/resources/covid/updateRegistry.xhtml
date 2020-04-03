@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+        "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:f="http://java.sun.com/jsf/core"
+      xmlns:p="http://primefaces.org/ui"
+      xmlns:composite="http://java.sun.com/jsf/composite">
+
+<composite:interface>
+
+</composite:interface>
+
+<composite:implementation>
+    <h:form>
+        <p:growl id="updateGrowl" life="2000" />
+        <p:panelGrid id="updateRegistryForm" columns="2" columnClasses="ui-g-12 ui-md-4, ui-g-12 ui-md-8"
+                     layout="grid" styleClass="ui-panelgrid-blank ui-fluid myPanel">
+
+            <p:outputLabel for="updateDateInput" value="Fecha:"/>
+            <p:datePicker id="updateDateInput" value="#{webAppBean.utilDateToUpdate}" showIcon="true" required="true"/>
+
+            <p:outputLabel for="updateCountryCodeInput" value="Código de país:"/>
+            <p:inputText id="updateCountryCodeInput" value="#{webAppBean.registryToUpdate.countryCode}" required="true"/>
+
+            <p:outputLabel for="updateCountryNameInput" value="Nomre del país:"/>
+            <p:inputText id="updateCountryNameInput" value="#{webAppBean.registryToUpdate.countryName}" required="true"/>
+
+            <p:outputLabel for="updateNewCasesInput" value="Nuevos casos:"/>
+            <p:inputNumber id="updateNewCasesInput" value="#{webAppBean.registryToUpdate.newCases}"/>
+
+            <p:outputLabel for="updateNewDeathsInput" value="Nuevas muertes:"/>
+            <p:inputNumber id="updateNewDeathsInput" value="#{webAppBean.registryToUpdate.newDeaths}"/>
+
+            <p:outputLabel for="updateNewRecoveredInput" value="Nuevos recuperados:"/>
+            <p:inputNumber id="updateNewRecoveredInput" value="#{webAppBean.registryToUpdate.newRecovered}"/>
+
+            <p:commandButton action="#{webAppBean.updateRegistry}" value="Modificar" icon="fa fa-fw fa-edit"
+                             style="margin-top:20px;display:block" update="updateGrowl"/>
+        </p:panelGrid>
+    </h:form>
+</composite:implementation>
+</html>

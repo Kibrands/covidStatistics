@@ -1,0 +1,43 @@
+<databaseChangeLog xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+                   xmlns:ext="http://www.liquibase.org/xml/ns/dbchangelog-ext"
+                   xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+                   xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog-ext
+                   http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-ext.xsd
+                    http://www.liquibase.org/xml/ns/dbchangelog
+                    http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-3.8.xsd">
+
+    <changeSet id="1" author="Julio de la Matta">
+        <comment>Create table registries</comment>
+        <createTable tableName="registries">
+            <column type="date" name="date">
+                <constraints nullable="false"/>
+            </column>
+            <column type="varchar(50)" name="countryCode">
+                <constraints nullable="false"/>
+            </column>
+            <column type="varchar(50)" name="countryName">
+                <constraints nullable="false"/>
+            </column>
+            <column type="int" name="newCases"/>
+            <column type="int" name="newDeaths"/>
+            <column type="int" name="newRecovered"/>
+        </createTable>
+    </changeSet>
+
+    <changeSet id="2" author="Julio de la Matta">
+        <comment>Add primary key to registries</comment>
+        <addPrimaryKey tableName="registries" columnNames="date, countryCode"/>
+    </changeSet>
+
+    <changeSet id="3" author="Julio de la Matta">
+        <comment>Insert registry</comment>
+        <insert tableName="registries">
+            <column name="date" type="date">2020-03-29</column>
+            <column name="countryCode" type="varchar(50)">es</column>
+            <column name="countryName" type="varchar(50)">España</column>
+            <column name="newCases" type="int">6398</column>
+            <column name="newDeaths" type="int">7340</column>
+            <column name="newRecovered" type="int">16780</column>
+        </insert>
+    </changeSet>
+</databaseChangeLog>

@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+        "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:f="http://java.sun.com/jsf/core"
+      xmlns:p="http://primefaces.org/ui"
+      xmlns:composite="http://java.sun.com/jsf/composite">
+
+<composite:interface>
+
+</composite:interface>
+
+<composite:implementation>
+    <h:form>
+        <p:growl id="saveGrowl" life="2000" />
+        <p:panelGrid id="saveRegistryForm" columns="2" columnClasses="ui-g-12 ui-md-4, ui-g-12 ui-md-8"
+                     layout="grid" styleClass="ui-panelgrid-blank ui-fluid myPanel">
+
+            <p:outputLabel for="saveDateInput" value="Fecha:"/>
+            <p:datePicker id="saveDateInput" value="#{webAppBean.utilDateToInsert}" showIcon="true" required="true"/>
+
+            <p:outputLabel for="saveCountryCodeInput" value="Código de país:"/>
+            <p:inputText id="saveCountryCodeInput" value="#{webAppBean.registryToSave.countryCode}" required="true"/>
+
+            <p:outputLabel for="saveCountryNameInput" value="Nomre del país:"/>
+            <p:inputText id="saveCountryNameInput" value="#{webAppBean.registryToSave.countryName}" required="true"/>
+
+            <p:outputLabel for="saveNewCasesInput" value="Nuevos casos:"/>
+            <p:inputNumber id="saveNewCasesInput" value="#{webAppBean.registryToSave.newCases}"/>
+
+            <p:outputLabel for="saveNewDeathsInput" value="Nuevas muertes:"/>
+            <p:inputNumber id="saveNewDeathsInput" value="#{webAppBean.registryToSave.newDeaths}"/>
+
+            <p:outputLabel for="saveNewRecoveredInput" value="Nuevos recuperados:"/>
+            <p:inputNumber id="saveNewRecoveredInput" value="#{webAppBean.registryToSave.newRecovered}"/>
+
+            <p:commandButton action="#{webAppBean.saveRegistry}" value="Guardar" icon="fa fa-fw fa-save"
+                             style="margin-top:20px;display:block" update="saveGrowl"/>
+        </p:panelGrid>
+    </h:form>
+</composite:implementation>
+</html>

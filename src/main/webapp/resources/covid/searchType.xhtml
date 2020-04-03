@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+        "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:f="http://java.sun.com/jsf/core"
+      xmlns:p="http://primefaces.org/ui"
+      xmlns:composite="http://java.sun.com/jsf/composite">
+
+<composite:interface>
+
+</composite:interface>
+
+<composite:implementation>
+    <h:form>
+        <p:panelGrid columns="2" columnClasses="ui-g-12 ui-md-4, ui-g-12 ui-md-8"
+                     layout="grid" styleClass="ui-panelgrid-blank ui-fluid myPanel">
+            <p:outputLabel for="searchTypeSelect" value="Tipo de búsqueda"/>
+            <p:selectOneMenu id="searchTypeSelect" value="#{webAppBean.searchType}">
+                <f:selectItem itemLabel="Selecciona uno" itemValue=""/>
+                <f:selectItem itemLabel="Todos los registros" itemValue="allRegs.xhtml"/>
+                <f:selectItem itemLabel="Por fecha y país" itemValue="byDateAndCountry.xhtml"/>
+                <p:ajax event="itemSelect" update=":dataSearch"/>
+            </p:selectOneMenu>
+        </p:panelGrid>
+    </h:form>
+</composite:implementation>
+</html>
